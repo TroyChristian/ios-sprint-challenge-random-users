@@ -17,6 +17,7 @@
 		FB594A5F23D2361E00C3F5FE /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB594A5E23D2361E00C3F5FE /* UserCell.swift */; };
 		FB594A6123D2364B00C3F5FE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB594A6023D2364B00C3F5FE /* DetailViewController.swift */; };
 		FB594A6423D23A4A00C3F5FE /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB594A6323D23A4A00C3F5FE /* Cache.swift */; };
+		FB5B818D23D251EB007BFC0D /* URL+Secure.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5B818C23D251EB007BFC0D /* URL+Secure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		FB594A5E23D2361E00C3F5FE /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		FB594A6023D2364B00C3F5FE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FB594A6323D23A4A00C3F5FE /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		FB5B818C23D251EB007BFC0D /* URL+Secure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Secure.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				FB594A5923D227BE00C3F5FE /* User.swift */,
+				FB5B818C23D251EB007BFC0D /* URL+Secure.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB5B818D23D251EB007BFC0D /* URL+Secure.swift in Sources */,
 				FB594A6423D23A4A00C3F5FE /* Cache.swift in Sources */,
 				8ED6A9882140178A00FC395A /* AppDelegate.swift in Sources */,
 				9D5CCA55214231DD00224681 /* ConcurrentOperation.swift in Sources */,
