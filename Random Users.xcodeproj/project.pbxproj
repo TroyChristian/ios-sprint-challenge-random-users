@@ -16,6 +16,7 @@
 		FB594A5D23D235E000C3F5FE /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB594A5C23D235E000C3F5FE /* UsersTableViewController.swift */; };
 		FB594A5F23D2361E00C3F5FE /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB594A5E23D2361E00C3F5FE /* UserCell.swift */; };
 		FB594A6123D2364B00C3F5FE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB594A6023D2364B00C3F5FE /* DetailViewController.swift */; };
+		FB594A6423D23A4A00C3F5FE /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB594A6323D23A4A00C3F5FE /* Cache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FB594A5C23D235E000C3F5FE /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		FB594A5E23D2361E00C3F5FE /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		FB594A6023D2364B00C3F5FE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FB594A6323D23A4A00C3F5FE /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			children = (
 				9D5CCA54214231DD00224681 /* ConcurrentOperation.swift */,
 				FB594A6223D2365D00C3F5FE /* ViewControllers */,
+				FB594A6523D23A5F00C3F5FE /* Utilities */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -106,6 +109,14 @@
 				FB594A6023D2364B00C3F5FE /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FB594A6523D23A5F00C3F5FE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				FB594A6323D23A4A00C3F5FE /* Cache.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB594A6423D23A4A00C3F5FE /* Cache.swift in Sources */,
 				8ED6A9882140178A00FC395A /* AppDelegate.swift in Sources */,
 				9D5CCA55214231DD00224681 /* ConcurrentOperation.swift in Sources */,
 				FB594A5D23D235E000C3F5FE /* UsersTableViewController.swift in Sources */,
