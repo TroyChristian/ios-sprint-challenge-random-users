@@ -13,20 +13,20 @@ class ConcurrentOperation: Operation {
     // MARK: Types
     
     enum State: String {
-        case isReady, isExecuting, isFinished
+        case isReady, isExecuting, isFinished, isCancelled
     }
     
     // MARK: Properties
     
-    private var _state = State.isReady
+    private var _state = State.isReady //default state of this operationis .ready
     
-    private let stateQueue = DispatchQueue(label: "com.LambdaSchool.Astronomy.ConcurrentOperationStateQueue")
+    private let stateQueue = DispatchQueue(label: "com.LambdaSchool.RandomUsers.ConcurrentOperationStateQueue")
     var state: State {
         get {
             var result: State?
             let queue = self.stateQueue
             queue.sync {
-                result = _state
+                result = _state // check current state of the operation
             }
             return result!
         }
@@ -36,7 +36,7 @@ class ConcurrentOperation: Operation {
             willChangeValue(forKey: newValue.rawValue)
             willChangeValue(forKey: oldValue.rawValue)
             
-            stateQueue.sync { self._state = newValue }
+            stateQueue.sync { self._state = newValue } //update operations value with state returned from Queue.
             
             didChangeValue(forKey: oldValue.rawValue)
             didChangeValue(forKey: newValue.rawValue)
@@ -59,6 +59,10 @@ class ConcurrentOperation: Operation {
     
     override var isAsynchronous: Bool {
         return true
+    }
+    
+    override dynamic var isCancelled: Bool {
+        return state == .isCancelled
     }
     
 }
