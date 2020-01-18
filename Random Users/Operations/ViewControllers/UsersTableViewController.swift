@@ -9,9 +9,11 @@
 import UIKit
 
 class UsersTableViewController: UITableViewController {
-
+// puting APIController here to test functions
+    let apiController:APIController? = APIController()
     override func viewDidLoad() {
         super.viewDidLoad()
+        apiController?.fetchAllUsers()
 
      
     }

@@ -18,6 +18,7 @@
 		FB594A6123D2364B00C3F5FE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB594A6023D2364B00C3F5FE /* DetailViewController.swift */; };
 		FB594A6423D23A4A00C3F5FE /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB594A6323D23A4A00C3F5FE /* Cache.swift */; };
 		FB5B818D23D251EB007BFC0D /* URL+Secure.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5B818C23D251EB007BFC0D /* URL+Secure.swift */; };
+		FB5B818F23D2538A007BFC0D /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5B818E23D2538A007BFC0D /* APIController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		FB594A6023D2364B00C3F5FE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FB594A6323D23A4A00C3F5FE /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		FB5B818C23D251EB007BFC0D /* URL+Secure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Secure.swift"; sourceTree = "<group>"; };
+		FB5B818E23D2538A007BFC0D /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				FB594A5923D227BE00C3F5FE /* User.swift */,
-				FB5B818C23D251EB007BFC0D /* URL+Secure.swift */,
+				FB5B819023D25399007BFC0D /* Networking */,
+				FB5B818E23D2538A007BFC0D /* APIController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -118,8 +121,16 @@
 			isa = PBXGroup;
 			children = (
 				FB594A6323D23A4A00C3F5FE /* Cache.swift */,
+				FB5B818C23D251EB007BFC0D /* URL+Secure.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		FB5B819023D25399007BFC0D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +212,7 @@
 				FB594A6123D2364B00C3F5FE /* DetailViewController.swift in Sources */,
 				FB594A5F23D2361E00C3F5FE /* UserCell.swift in Sources */,
 				FB594A5A23D227BE00C3F5FE /* User.swift in Sources */,
+				FB5B818F23D2538A007BFC0D /* APIController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

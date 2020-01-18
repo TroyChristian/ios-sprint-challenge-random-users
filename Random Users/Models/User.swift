@@ -14,10 +14,10 @@ import Foundation
 // need phone number and email address
 
 
-struct Results: Codable {
-    var results:[ResultsDetail]
+struct Users: Codable {
+    var results:[UserDetail]
 }
-struct ResultsDetail: Codable {
+struct UserDetail: Codable {
     var email:String
     var phone:String
     var name:Name
