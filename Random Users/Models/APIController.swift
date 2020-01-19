@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 enum HTTPMethod: String {
     case get = "GET"
     case put = "PUT"
@@ -24,7 +25,7 @@ enum NetworkError: Error {
 
 
 class APIController {
-    var users = [Users]()
+    var usersList = [UserDetail]()
    var url = URL(string: "https://randomuser.me/api/?format=json&inc=name,email,phone,picture&results=1000")!
     
     func fetchAllUsers(){
@@ -32,26 +33,7 @@ class APIController {
         request.httpMethod = HTTPMethod.get.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        /*
-          func getAllClasses(completion: @escaping ([FitnessClassRepresentation]?, Error?) -> Void)
-         URLSession.shared.dataTask(with: request) { data, _, error in
-             if let _ = error {
-                 print("Error")
-                 completion(nil, error)
-                 return
-             }
-             guard let data = data else {
-                 print("Bad Data")
-                 return
-             }
-
-             let decoder = JSONDecoder()
-             decoder.keyDecodingStrategy = .convertFromSnakeCase
-             do {
-                 let fitnessClasses = try decoder.decode([FitnessClassRepresentation].self, from: data)
-                 completion(fitnessClasses, nil)
-         */
-        
+     
         URLSession.shared.dataTask(with:request) {data, response, error in
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
@@ -76,7 +58,14 @@ class APIController {
             do {
                 let users = try decoder.decode(Users.self, from:data)
               
+              
                 print("Success fetching users from server")
+               // print(users.results[0])
+                self.usersList = users.results
+                print(self.usersList[0].name.first)
+                
+                
+               
                 
             } catch {
                 print("Error decoding users from data into user object: \(error)")
@@ -93,5 +82,48 @@ class APIController {
     
     
 }
+
+    func fetchImage( at urlString: String, completion: @escaping (Result<UIImage, NetworkError>) -> Void) {
+        guard let userThumbnailURL = URL(string:urlString) else {
+            completion(.failure(.badData))
+            return
+        }
+        
+        var request = URLRequest(url: userThumbnailURL)
+        request.httpMethod = HTTPMethod.get.rawValue
+        
+        URLSession.shared.dataTask(with:request) { data, response, error in
+            if let error = error {
+                print("Error making fetchImage request: \(error)")
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 200 {
+                print("Error in response: \(response)")
+                completion(.failure(.badResponse))
+                return
+                
+            }
+            
+            guard let data = data else {
+                print("Bad data")
+                completion(.failure(.badData))
+                return
+            }
+            
+            guard let userThumbnail = UIImage(data:data) else {return}
+            DispatchQueue.main.async {
+                completion(.success(userThumbnail))
+                
+            }
+            
+            
+    }
+    
+    
+    
+    
 }
 
+}
