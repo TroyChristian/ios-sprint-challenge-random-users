@@ -10,15 +10,29 @@ import UIKit
 
 class UsersTableViewController: UITableViewController {
 // puting APIController here to test functions
-    let apiController:APIController? = APIController()
+   //var usersPopulatingTableView = [UserDetail]()
+    let apiController = APIController.sharedAPIController
+    var url = "https://randomuser.me/api/?format=json&inc=name,email,phone,picture&results=1000"
     override func viewDidLoad() {
         super.viewDidLoad()
-        apiController?.fetchAllUsers()
+        
+        apiController.fetchAllUsers(for: url, completion: { result in
+            try? result.get() })
+        print(apiController.usersList?.results.count)
+                
+            
+        
+        }
+        
+        
+        
+    
+    
+      
+       
+        
 
-     
-    }
-
-    // MARK: - Table view data source
+    
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -27,14 +41,25 @@ class UsersTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        print("Rows init")
+        return apiController.usersList?.results.count ?? 0
+        
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as? UserCell else {return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as? UserCell else { print ("RETURNING LINE 38") ; return UITableViewCell()}
 
-        // Configure the cell...
+        guard  let currentUser = apiController.usersList?.results[indexPath.row] else {  return UITableViewCell()  }
+        
+        cell.title.text? = (currentUser.name.title)
+        cell.firstName.text? = (currentUser.name.first)
+        cell.lastName.text? = (currentUser.name.last)
+        apiController.fetchImage(at: currentUser.picture.thumbnail, completion: { result in
+            if let userThumbnail = try? result.get() {
+                cell.thumbnail.image = userThumbnail
+            }})
+        
 
         return cell
     }
