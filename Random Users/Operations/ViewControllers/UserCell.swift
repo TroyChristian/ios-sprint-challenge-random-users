@@ -17,5 +17,22 @@ class UserCell: UITableViewCell {
     @IBOutlet weak var lastName: UILabel!
     
     //func setThumbnail
+    
+    var user: User? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib() 
+    }
+    
+    func updateViews() {
+        guard let user = user else {return}
+        title.text? = user.name.title
+        firstName.text? = user.name.first
+        lastName.text? = user.name.last
+    }
 
 }

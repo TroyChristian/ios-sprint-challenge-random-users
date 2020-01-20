@@ -95,9 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				9D5CCA54214231DD00224681 /* ConcurrentOperation.swift */,
+				FB59D95423D5969E00E2EB88 /* FetchPhotoOperation.swift */,
 				FB594A6223D2365D00C3F5FE /* ViewControllers */,
 				FB594A6523D23A5F00C3F5FE /* Utilities */,
-				FB59D95423D5969E00E2EB88 /* FetchPhotoOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
