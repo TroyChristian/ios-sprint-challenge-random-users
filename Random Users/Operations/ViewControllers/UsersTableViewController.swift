@@ -16,10 +16,7 @@ class UsersTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        apiController.fetchAllUsers(for: url, completion: { result in
-            try? result.get() })
-        print(apiController.usersList?.results.count)
-                
+       
             
         
         }
@@ -42,7 +39,7 @@ class UsersTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         print("Rows init")
-        return apiController.usersList?.results.count ?? 0
+        return 0
         
     }
 
@@ -50,16 +47,9 @@ class UsersTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as? UserCell else { print ("RETURNING LINE 38") ; return UITableViewCell()}
 
-        guard  let currentUser = apiController.usersList?.results[indexPath.row] else {  return UITableViewCell()  }
+      
         
-        cell.title.text? = (currentUser.name.title)
-        cell.firstName.text? = (currentUser.name.first)
-        cell.lastName.text? = (currentUser.name.last)
-        apiController.fetchImage(at: currentUser.picture.thumbnail, completion: { result in
-            if let userThumbnail = try? result.get() {
-                cell.thumbnail.image = userThumbnail
-            }})
-        
+      
 
         return cell
     }

@@ -26,10 +26,11 @@ enum NetworkError: Error {
 
 class APIController {
    static var sharedAPIController = APIController() 
-    var usersList: Users?
+    var users = Results()
+    
    var baseUrl = URL(string: "https://randomuser.me/api/?format=json&inc=name,email,phone,picture&results=1000")!
     
-    func fetchAllUsers(for target:String, completion: @escaping (Result<[UserDetail], NetworkError>) -> Void)  {
+    func fetchAllUsers<T:Codable>(for target:String, completion: @escaping (T?, Error?)->Void)  {
         let url = URL(string:target)!
         var request = URLRequest(url:url)
         request.httpMethod = HTTPMethod.get.rawValue
@@ -39,7 +40,7 @@ class APIController {
         URLSession.shared.dataTask(with:request) {data, response, error in
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
-                completion(.failure(.badResponse))
+                completion(nil, error)
 //                print("bad response: \(String(describing: error))")
                 return
               
@@ -47,7 +48,7 @@ class APIController {
             
             if let error = error {
                 print("Error thrown during data task fetching 1000 users from server: \(error)")
-                completion(.failure(.otherError))
+                completion(nil, error)
                 return
                 
                
@@ -56,7 +57,7 @@ class APIController {
             
             guard let data = data else {
                 //print("data not recieved: \(String(describing: error))")
-                completion(.failure(.badData))
+                completion(nil, error)
               
                 return
             }
@@ -64,12 +65,9 @@ class APIController {
            let decoder = JSONDecoder()
             
             do {
-                let users = try decoder.decode(Users.self, from:data)
+                let users = try decoder.decode(T.self, from:data)
                 print("Success fetching users from server")
-                let userList = users.results
-                DispatchQueue.main.async {
-                completion(.success(userList))
-                }
+                completion(users, nil)
                 
                 
                 
@@ -79,7 +77,7 @@ class APIController {
                 
             } catch {
                 print("Error decoding users from data into user object: \(error)")
-                completion(.failure(.noDecode))
+                completion(nil, error) 
              
                 return
             }
@@ -89,10 +87,26 @@ class APIController {
        
         
         }.resume()
+        
+        
     
   
      
 }
+    
+    func fetchResults(completion: @escaping (Error?) -> Void) {
+        fetchAllUsers(for: "https://randomuser.me/api/?format=json&inc=name,email,phone,picture&results=1000") { (results:Results?, error) in
+            guard let results = results else {
+                completion(error)
+                return
+            }
+            self.users = results
+            completion(nil) 
+            
+        }
+        
+        }
+    
 
     func fetchImage( at urlString: String, completion: @escaping (Result<UIImage, NetworkError>) -> Void) {
         guard let userThumbnailURL = URL(string:urlString) else {
