@@ -17,6 +17,10 @@
 		FB594A5F23D2361E00C3F5FE /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB594A5E23D2361E00C3F5FE /* UserCell.swift */; };
 		FB594A6123D2364B00C3F5FE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB594A6023D2364B00C3F5FE /* DetailViewController.swift */; };
 		FB594A6423D23A4A00C3F5FE /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB594A6323D23A4A00C3F5FE /* Cache.swift */; };
+		FB59D95523D5969E00E2EB88 /* FetchPhotoOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59D95423D5969E00E2EB88 /* FetchPhotoOperation.swift */; };
+		FB5B818D23D251EB007BFC0D /* URL+Secure.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5B818C23D251EB007BFC0D /* URL+Secure.swift */; };
+		FB5B818F23D2538A007BFC0D /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5B818E23D2538A007BFC0D /* APIController.swift */; };
+		FB5B819223D2A15B007BFC0D /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5B819123D2A15B007BFC0D /* ImageService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		FB594A5E23D2361E00C3F5FE /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		FB594A6023D2364B00C3F5FE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FB594A6323D23A4A00C3F5FE /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		FB59D95423D5969E00E2EB88 /* FetchPhotoOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPhotoOperation.swift; sourceTree = "<group>"; };
+		FB5B818C23D251EB007BFC0D /* URL+Secure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Secure.swift"; sourceTree = "<group>"; };
+		FB5B818E23D2538A007BFC0D /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		FB5B819123D2A15B007BFC0D /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				9D5CCA54214231DD00224681 /* ConcurrentOperation.swift */,
+				FB59D95423D5969E00E2EB88 /* FetchPhotoOperation.swift */,
 				FB594A6223D2365D00C3F5FE /* ViewControllers */,
 				FB594A6523D23A5F00C3F5FE /* Utilities */,
 			);
@@ -97,6 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				FB594A5923D227BE00C3F5FE /* User.swift */,
+				FB5B819023D25399007BFC0D /* Networking */,
+				FB5B818E23D2538A007BFC0D /* APIController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -115,8 +126,17 @@
 			isa = PBXGroup;
 			children = (
 				FB594A6323D23A4A00C3F5FE /* Cache.swift */,
+				FB5B818C23D251EB007BFC0D /* URL+Secure.swift */,
+				FB5B819123D2A15B007BFC0D /* ImageService.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		FB5B819023D25399007BFC0D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,13 +210,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB5B818D23D251EB007BFC0D /* URL+Secure.swift in Sources */,
 				FB594A6423D23A4A00C3F5FE /* Cache.swift in Sources */,
 				8ED6A9882140178A00FC395A /* AppDelegate.swift in Sources */,
+				FB5B819223D2A15B007BFC0D /* ImageService.swift in Sources */,
 				9D5CCA55214231DD00224681 /* ConcurrentOperation.swift in Sources */,
 				FB594A5D23D235E000C3F5FE /* UsersTableViewController.swift in Sources */,
 				FB594A6123D2364B00C3F5FE /* DetailViewController.swift in Sources */,
+				FB59D95523D5969E00E2EB88 /* FetchPhotoOperation.swift in Sources */,
 				FB594A5F23D2361E00C3F5FE /* UserCell.swift in Sources */,
 				FB594A5A23D227BE00C3F5FE /* User.swift in Sources */,
+				FB5B818F23D2538A007BFC0D /* APIController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
