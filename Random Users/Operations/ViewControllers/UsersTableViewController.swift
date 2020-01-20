@@ -13,13 +13,31 @@ class UsersTableViewController: UITableViewController {
    //var usersPopulatingTableView = [UserDetail]()
     let apiController = APIController.sharedAPIController
     var url = "https://randomuser.me/api/?format=json&inc=name,email,phone,picture&results=1000"
+    let cache = Cache<User, Data>()
+    let DetailPhotoCache = Cache<User, Data>()
+    let photoGrabberQueue = OperationQueue()
+    var operations = [User: Operation]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
+        apiController.fetchResults {  (error)  in
+        if let error = error {
+            print(error)
+            return
+        }
+        DispatchQueue.main.async {
+            self.tableView?.reloadData()
+        }
             
         
-        }
+    }
+       
+    }
+    
+    
+        
+        
         
         
         
